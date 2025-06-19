@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EXCEL'ES FORMATION</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f8fc;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; margin: 0; }
+    .container { max-width: 1100px; margin: auto; padding: 2rem; }
+    .cards {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .section-title {
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 3rem 0 1rem;
+    }
+    form {
+      background: white;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+    form label { display: block; margin-top: 1rem; font-weight: 600; }
+    form input, form select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-top: 0.3rem;
+      font-size: 1rem;
+    }
+    form button {
+      margin-top: 2rem;
+      width: 100%;
+      background: #3b82f6;
+      color: white;
+      padding: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    form button:hover { background: #2563eb; }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EXCEL'ES FORMATION</h1>
+    <p>Formations Excel et Sage avec Apata Joël Nathan</p>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Nos Modules</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Excel</h3>
+        <p>Niveau Débutant à Avancé</p>
+        <p>Maîtrisez les formules, tableaux, graphiques, TCD, automatisation…</p>
+      </div>
+      <div class="card">
+        <h3>Sage Comptabilité</h3>
+        <p>Gestion comptable professionnelle</p>
+        <p>Pour entrepreneurs, comptables, gestionnaires.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Tarifs</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>En ligne</h3>
+        <p>💵 <strong>30 000 F CFA</strong></p>
+        <p>Flexible, accessible depuis chez vous</p>
+      </div>
+      <div class="card">
+        <h3>Présentiel</h3>
+        <p>🏢 <strong>50 000 F CFA</strong></p>
+        <p>En salle, avec accompagnement direct</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Inscription rapide</h2>
+    <form id="whatsappForm">
+      <label for="name">Nom complet</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Adresse email</label>
+      <input type="email" id="email" required>
+
+      <label for="module">Module</label>
+      <select id="module" required>
+        <option value="">-- Choisir un module --</option>
+        <option value="Excel">Excel</option>
+        <option value="Sage Comptabilité">Sage Comptabilité</option>
+      </select>
+
+      <label for="mode">Mode de formation</label>
+      <select id="mode" required>
+        <option value="">-- Choisir un mode --</option>
+        <option value="En ligne">En ligne</option>
+        <option value="Présentiel">Présentiel</option>
+      </select>
+
+      <button type="submit">Envoyer via WhatsApp</button>
+    </form>
+  </div>
+
+  <footer>
+    📱 Contact WhatsApp : +225 07 78 19 61 64<br>
+    © 2025 EXCEL'ES FORMATION. Tous droits réservés.
+  </footer>
+
+  <script>
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const module = document.getElementById('module').value;
+      const mode = document.getElementById('mode').value;
+      const msg = `Bonjour, je souhaite m'inscrire à la formation ${module} en mode ${mode}.\nNom : ${name}\nEmail : ${email}`;
+      window.open(`https://wa.me/2250778196164?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+  </script>
+</body>
+</html>
